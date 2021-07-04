@@ -10,7 +10,7 @@
     var d = new Date();
     
     // function randomStyle
-    var arr= ['background-color','border-color','border-radius','border-width',`left`,`top`]
+    var arr= ['background-color','border-color',`color`,'border-radius','border-width',`left`,`top`]
     var borderWid =[`thin`,`medium`, `thick`]
 
 
@@ -21,9 +21,9 @@
         d= new Date()
         let i = Math.floor(Math.random() * 1000) 
         let j= borderWid[i%3]
-        let char = arr[i%6]
+        let char = arr[i%7]
         btn.innerHTML =`<h1> ${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()}`
-       
+        console.log(`i=${i} j=${j} char=${char}`)
         
         switch (char)
         {
@@ -34,6 +34,9 @@
             case `border-color`:
                     btn.style= `${char} : rgb(${i%100},${i%255},${i%160})`
                     break;
+            case `color`:
+                    btn.style= `${char} : rgb(${i%100},${i%255},${i%160})`
+                    break;        
             case `border-width`:
                     btn.style= `border-width : ${j}`
                     break;
@@ -41,11 +44,11 @@
                     btn.style= `border-radius : ${i%100}%`
                     break;
             case `left`:
-                    myDiv.style= ` position: relative; left : ${i%7000}px`
-                    console.log(`left : ${i%7000}px`)
+                    myDiv.style= ` position: relative; left : ${i}px`
+                    console.log(`left : ${i}px`)
                     break;
             case `top`:
-                    myDiv.style= ` position: relative; top : ${i%7000}px`
+                    myDiv.style= ` position: relative; top : ${i%500}px`
                     break;
         }
     }
