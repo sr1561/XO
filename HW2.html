@@ -127,12 +127,15 @@
         {        
             let temp =students[i]
             for (j=0; j<temp.length;j++)
-            if (temp[j]== text.value)
+            {
+                let str = String (temp[j])
+            if (str.search(text.value)!=-1)
                 {
                     pos=i
                     drawCard(students[i])
                     return
                 }
+             }
          }
         myDiv.innerHTML+= `<h1>Didn't find</h1>`
         return
