@@ -10,8 +10,8 @@
             .square {
             border: 2px solid #4CAF50; 
             background-color: white;
-            width: 50px;  
-            height: 50px;  
+            width: 80px;  
+            height: 80px;  
             color: black;
             padding: 10px 10px;
             text-align: center;
@@ -23,12 +23,12 @@
         </style>
     </head>
 <body>
-
+    <div>
         <label>Player 1 (X) name:</label>
         <input id ="pl1"></input><br><br>
         <label>Player 2 (O) name:</label>
         <input id ="pl2"></input>
-    <div id='myDiv' class="container"  onclick="play()"></div>  
+    <div id='myDiv' class="container"  onclick="play()">   
 <script>
     let player1 =true
     var resultArr =[2,3,4,5,6,7,8,9,10]
@@ -54,18 +54,17 @@
 
         if (player1 ==true) 
         {
-            resultArr [Number(clicked.id)] = 1
+            resultArr [Number(clicked)] = 1
             clicked.innerText="X"
             player1=false
         }
         else
         {
-            resultArr [Number(clicked.id)] = 0
+            resultArr [Number(clicked)] = 0
             clicked.innerText="O"
             player1=true
         }
         winner = win()
-        console.log(`winner = ${winner}`)
         switch (winner)
             {       
             case "player1":
@@ -114,7 +113,7 @@
                     else
                         return "player2"
                 }
-            return "No win"
+            return
         }   
 </script>
 </body>
