@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div id='myDiv'> <button id='btn'></button>
+    </div>
+        
+
+<script>
+    var d = new Date();
+    
+    // function randomStyle
+    var arr= ['background-color','border-color','border-radius','border-width',`left`,`top`]
+    var borderWid =[`thin`,`medium`, `thick`]
+
+
+    setInterval(paintDiv,1000);
+
+    function paintDiv()
+    {   
+        d= new Date()
+        let i = Math.floor(Math.random() * 1000) 
+        let j= borderWid[i%3]
+        let char = arr[i%6]
+        btn.innerHTML =`<h1> ${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()}`
+       
+        
+        switch (char)
+        {
+            case `background-color` :
+                    btn.style= `${char} : rgb(${i%255},${i%159},${i%100})`
+                    console.log(`${char} : rgb(${i%255},${i%255},${i%255}) i=${i}`)
+                    break;
+            case `border-color`:
+                    btn.style= `${char} : rgb(${i%100},${i%255},${i%160})`
+                    break;
+            case `border-width`:
+                    btn.style= `border-width : ${j}`
+                    break;
+            case `border-radius`:
+                    btn.style= `border-radius : ${i%100}%`
+                    break;
+            case `left`:
+                    myDiv.style= ` position: relative; left : ${i%7000}px`
+                    console.log(`left : ${i%7000}px`)
+                    break;
+            case `top`:
+                    myDiv.style= ` position: relative; top : ${i%7000}px`
+                    break;
+        }
+    }
+
+</script>
+
+</body>
+</html>
