@@ -51,25 +51,22 @@
     // mark board
     function play()
     {
-        let clicked = event.target.id
+        let clicked = event.target
         let winner
-        if (document.getElementById (clicked).innerText=="X" ||
-        document.getElementById (clicked).innerText=="O")
+        if (clicked.innerText=="X" || clicked.innerText=="O")
             return
 
         if (player1 ==true) 
         {
             resultArr [Number(clicked)] = 1
-            console.log (resultArr)
-            document.getElementById (clicked).innerText="X"
+            clicked.innerText="X"
             player1=false
 
         }
         else
         {
             resultArr [Number(clicked)] = 0
-            console.log (resultArr)
-            document.getElementById (clicked).innerText="O"
+            clicked.innerText="O"
             player1=true
 
         }
